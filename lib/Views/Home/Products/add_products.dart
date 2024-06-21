@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:ecommerce/Data/response/status.dart';
 import 'package:ecommerce/Models/Request/product_request.dart';
 import 'package:ecommerce/ViewModels/image_viewModel.dart';
@@ -202,10 +200,11 @@ class _AddProductsState extends State<AddProducts> {
                                 return const Center(
                                     child: CircularProgressIndicator());
                               case Status.COMPLETED:
-                                // Show dropdown button when data is loaded
+
                                 var categories =
                                     viewModel.response.data!.data ??
                                         []; // Update categories here
+                                // Show dropdown button when data is loaded
                                 return DropdownButton<int>(
                                   value: selectedCategoryId,
                                   hint: Text(

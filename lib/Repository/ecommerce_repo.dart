@@ -1,5 +1,5 @@
-import 'dart:convert';
 
+import 'package:ecommerce/Data/network/apiPag_service.dart';
 import 'package:ecommerce/Data/network/api_service.dart';
 import 'package:ecommerce/Models/Request/category_request.dart';
 import 'package:ecommerce/Models/response/category.dart';
@@ -9,6 +9,7 @@ import 'package:ecommerce/Res/url.dart';
 
 class EcommerceRepository {
   var apiService = ApiService();
+  var apiPageService =ApiServicePag();
   Future<Products> getAllProducts() async {
     try {
       dynamic response = await apiService.getApi(ClsUrl.getAllProductUrl);
@@ -18,11 +19,20 @@ class EcommerceRepository {
     }
   }
 
-  Future<Products> getAllProductsPage({pageNumber}) async {
+  Future<Products> getAllProductsPage({int page = 1, int pageSize = 25}) async {
     try {
-      dynamic response = await apiService.getApi(ClsUrl.getAllProductUrl);
+      Map<String, String> queryParams = {
+        'page': page.toString(),
+        'pageSize': pageSize.toString(),
+      };
+      dynamic response = await apiPageService.getApiPag(ClsUrl.getAllProductUrl, queryParams: queryParams);
+      print('API response: $response'); // Debug print
+      if (response == null) {
+        throw FetchDataException('Null response received');
+      }
       return productsFromJson(response);
     } catch (exception) {
+      print('Error: $exception'); // Debug print
       rethrow;
     }
   }
@@ -93,3 +103,5 @@ class EcommerceRepository {
     }
   }
 }
+
+

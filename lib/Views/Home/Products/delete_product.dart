@@ -8,8 +8,6 @@ class DeleteProduct extends StatelessWidget {
   Datum? product;
   Data? products;
 
-
-
   var productViewModel = ProductViewModel();
 
   @override

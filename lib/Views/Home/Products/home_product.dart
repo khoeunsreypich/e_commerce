@@ -66,7 +66,7 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        softWrap: true,
+                        softWrap: true, 
                       ),
                     ),
                     Text(

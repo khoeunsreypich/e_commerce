@@ -1,5 +1,3 @@
-import 'package:ecommerce/Views/Home/Add_Pro_to_cat/add_Pro_toCate.dart';
-import 'package:ecommerce/Views/Home/Categories/display_cate.dart';
 import 'package:ecommerce/Views/Home/Products/update.dart';
 import 'package:ecommerce/Views/Home/drawer.dart';
 import 'package:flutter/material.dart';

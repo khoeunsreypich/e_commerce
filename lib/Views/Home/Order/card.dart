@@ -1,5 +1,4 @@
 import 'package:ecommerce/Models/response/product.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartPro extends StatefulWidget {
@@ -11,6 +10,8 @@ class CartPro extends StatefulWidget {
 }
 
 class _CartProState extends State<CartPro> {
+  Map<Datum, int> selectedItems = {};
+
   int _quantity = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,12 +32,16 @@ class _CartProState extends State<CartPro> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    // child: Image.network('https://t3.ftcdn.net/jpg/02/86/68/80/240_F_286688069_n7HH5pKqK49Dfm3KvAlKGs0AD4HbrFlV.jpg',
-                    //   height: 105,width: 180,),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.network('https://cms.istad.co${widget.product?.attributes?.thumbnail?.data?.attributes?.url}',
-                        height: 100,width: 100,),
+                      child: Image.network(
+                        widget.product?.attributes?.thumbnail?.data
+                            ?.attributes?.url !=
+                            null
+                            ? 'https://cms.istad.co${widget.product?.attributes?.thumbnail?.data?.attributes?.url}'
+                            : 'https://i.pinimg.com/originals/d1/c4/db/d1c4db78a9ccb94c19f5958f50648ace.jpg',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Padding(
@@ -47,7 +52,7 @@ class _CartProState extends State<CartPro> {
                         SizedBox(
                           width: 120,
                           child: Text(
-                            '\$${widget.product?.attributes?.title}',
+                            '${widget.product?.attributes?.title}',
                             // 'Dress',
                             style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
                             maxLines: 1,
@@ -59,7 +64,7 @@ class _CartProState extends State<CartPro> {
                         Text(
                           '\$${widget.product?.attributes?.price}',
                           // '15\$',
-                          style: TextStyle(fontSize: 18,color: Colors.red,fontWeight: FontWeight.w500),
+                          style: const TextStyle(fontSize: 18,color: Colors.red,fontWeight: FontWeight.w500),
                         ),],
                     ),
                   ),
@@ -110,17 +115,10 @@ class _CartProState extends State<CartPro> {
                   ),
                 ],
               ),
-
             ],
           ),
         ),
         SizedBox(height: 16),
-        // ElevatedButton(
-        //   onPressed: () {
-        //     // Add logic to add the current product to the cart
-        //   },
-        //   child: Text('Add to Cart'),
-        // ),
       ],
     );
   }

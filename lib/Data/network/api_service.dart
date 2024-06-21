@@ -15,6 +15,7 @@ class ApiService {
     }
   }
 
+
   Future<dynamic> uploadImage (image,url) async{
     http.StreamedResponse? response;
     try{

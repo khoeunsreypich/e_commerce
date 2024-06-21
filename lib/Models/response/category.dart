@@ -1,6 +1,4 @@
-// To parse this JSON data, do
-//
-//     final categories = categoriesFromJson(jsonString);
+
 
 import 'dart:convert';
 Categories categoriesFromJson(String str) => Categories.fromJson(json.decode(str));

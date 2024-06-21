@@ -2,17 +2,14 @@ import 'package:ecommerce/Data/response/status.dart';
 import 'package:ecommerce/ViewModels/category_vm.dart';
 import 'package:ecommerce/ViewModels/product_vm.dart';
 import 'package:ecommerce/Views/Home/Categories/display_cate.dart';
-import 'package:ecommerce/Views/Home/Categories/product_by_category.dart';
 import 'package:ecommerce/Views/Home/Products/product_details.dart';
-import 'package:ecommerce/Views/Home/Products/search.dart';
-import 'package:ecommerce/Views/Home/Settings/settings.dart';
 import 'package:ecommerce/Views/Skeleton/skeleton.dart';
 import 'package:ecommerce/Views/Skeleton/skeleton_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:provider/provider.dart';
-import 'Categories/home_brand.dart';
 import 'Products/home_product.dart';
+import 'SearchScreen/search.dart';
 import 'drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final _productViewModel = ProductViewModel();
   final _categoryViewModel = CategoryViewModel();
 
-//  TextEditingController _searchController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -46,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SearchScreen(),
+                builder: (context) => SearchProductScreen(),
               ));
         },
       ),
@@ -70,10 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 height: 200,
                 initialPage: 0,
-
                 /// The color to paint the indicator.
                 indicatorColor: Colors.blue,
-
                 /// The color to paint behind th indicator.
                 indicatorBackgroundColor: Colors.grey,
                 children: [
@@ -181,7 +175,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       mainAxisExtent: 300),
                               // itemCount: viewModel.response.data?.data?.length,
                               itemCount: viewModel.response.data?.data?.length,
-
                               // itemCount: 100,
                               itemBuilder: (context, index) {
                                 var product =
@@ -204,7 +197,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   //onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));},
                                 );
                               });
-
                         case Status.ERROR:
                           return Text('Error');
                       }

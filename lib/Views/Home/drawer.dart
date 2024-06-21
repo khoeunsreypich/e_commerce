@@ -1,8 +1,10 @@
-import 'package:ecommerce/Views/Home/Products/search.dart';
+
 import 'package:ecommerce/Views/Home/Settings/settings.dart';
 import 'package:ecommerce/Views/Home/homeScreen.dart';
 import 'package:ecommerce/main.dart';
 import 'package:flutter/material.dart';
+
+import 'SearchScreen/search.dart';
 
 class DrawerScreen extends StatelessWidget {
    DrawerScreen({super.key});
@@ -42,11 +44,12 @@ class DrawerScreen extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: (){},
+
                   leading: Icon(Icons.shop_2_outlined,size: 30,color: Colors.blueGrey,),
                   title: Text('Shop',style: styleText),
                 ),
                 ListTile(
-                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen(),));},
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProductScreen(),));},
                   leading: Icon(Icons.search_outlined,size: 30,color: Colors.blueGrey,),
                   title: Text('Search',style: styleText),
                 ),

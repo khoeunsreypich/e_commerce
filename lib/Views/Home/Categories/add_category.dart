@@ -30,11 +30,6 @@ class _AddProductsState extends State<AddCategory> {
   );
   final _formKey = GlobalKey<FormState>();
   @override
-  // void initState() {
-  //   super.initState();
-  //   checkIfFromUpdate();
-  // }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

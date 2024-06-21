@@ -129,7 +129,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AddToCard(),
+                        builder: (context) => TotalPrice(),
                       ));
                 },
                 child: Text(

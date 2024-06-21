@@ -1,10 +1,6 @@
-
 import 'package:ecommerce/Data/response/api_response.dart';
-import 'package:ecommerce/Models/response/product.dart';
 import 'package:ecommerce/Repository/ecommerce_repo.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../Models/Request/product_request.dart';
 
 class ProductRequestViewModel extends ChangeNotifier{
   final _productRepo = EcommerceRepository();
